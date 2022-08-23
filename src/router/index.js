@@ -28,6 +28,11 @@ const routes = [
     component: oneCard,
     props: true,
   },
+  {
+    path: "/loging",
+    name: "login",
+    component: () => import("../views/login.vue"),
+  },
 ];
 
 const router = createRouter({
