@@ -1,8 +1,9 @@
 import { createStore } from "vuex";
-
+import router from "../router/index";
 export default createStore({
   state: {
     users: null,
+    user: null,
     token: null,
     products: null,
     product: null,
@@ -10,11 +11,14 @@ export default createStore({
   getters: {},
 
   mutations: {
-    setToken: (state, token) => {
+    settoken: (state, token) => {
       state.token = token;
     },
     setusers: (state, users) => {
       state.users = users;
+    },
+    setuser: (state, user) => {
+      state.user = user;
     },
     setproducts: (state, products) => {
       state.products = products;
@@ -28,26 +32,37 @@ export default createStore({
       context.commit("setusers", null);
       window.location = "/login";
     },
-    login: async (context, data) => {
-      const { email, password } = data;
-      const response = await fetch(`http://localhost:7373/users/login`, {
+    login: async (context, payload) => {
+      let res = await fetch("http://localhost:7373/users/login", {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
-          email: data.email,
-          password: data.email,
+          email: payload.email,
+          password: payload.password,
         }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          context.commit("setToken", data);
-        });
-
-      const usersData = await response.json();
-      console.log(usersData);
-      context.commit("setusers", usersData[0]);
-      router.push({
-        name: "",
       });
+      let data = await res.json();
+      console.log(data);
+      if (data.token) {
+        context.commit("settoken", data.token);
+        // Verify token
+        //
+        fetch("http://localhost:7373/users/verify", {
+          headers: {
+            "Content-Type": "application/json",
+            "x-auth-token": data.token,
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            context.commit("setuser", data.user);
+            router.push("/products");
+          });
+      } else {
+        alert(data);
+      }
     },
     register: async (context, data) => {
       const { FullName, email, password } = data;

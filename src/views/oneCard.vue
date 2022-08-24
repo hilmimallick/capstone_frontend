@@ -36,7 +36,7 @@ export default {
       .then((res) => res.json())
       .then((data) => {
         this.product = data;
-        console.log(product);
+        // console.log(product);
       });
   },
 };
