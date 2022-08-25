@@ -21,12 +21,39 @@
           v-model="password"
           placeholder="Password"
         />
+        <input
+          class="register-form-password"
+          type="text"
+          v-model="billing_address"
+          placeholder="billing_address"
+        />
+        <input
+          class="register-form-password"
+          type="text"
+          v-model="default_shipping_address"
+          placeholder="default_shipping_address"
+        />
+        <input
+          class="register-form-password"
+          type="text"
+          v-model="country"
+          placeholder="country"
+        />
+        <input
+          class="register-form-password"
+          type="text"
+          v-model="phone"
+          placeholder="phone"
+        />
+        <select name="user" id="user" v-model="user_type">
+          <option value="user">Customer</option>
+        </select>
         <div>
           <button id="register-btn" type="submit">Register</button>
         </div>
       </form>
     </div>
-    <div v-if="users">Welcome {{ users.full_name }}</div>
+    <!-- <div v-if="users">Welcome {{ users.full_name }}</div> -->
   </div>
 </template>
 <script>
@@ -36,6 +63,11 @@ export default {
       full_name: "",
       email: "",
       password: "",
+      billing_address: "",
+      default_shipping_address: "",
+      country: "",
+      phone: "",
+      user_type: "",
     };
   },
   computed: {
@@ -49,6 +81,11 @@ export default {
         full_name: this.full_name,
         email: this.email,
         password: this.password,
+        billing_address: this.billing_address,
+        default_shipping_address: this.default_shipping_address,
+        country: this.country,
+        phone: this.phone,
+        user_type: this.user_type,
       });
     },
   },

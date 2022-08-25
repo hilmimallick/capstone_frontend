@@ -17,6 +17,7 @@
             <p class="card-text">R{{ item.price }}</p>
             <p class="card-text">{{ item.description }}</p>
             <p class="card-text">{{ item.artist }}</p>
+            <p class="card-text">{{ item.size }}</p>
           </div>
         </div>
       </div>

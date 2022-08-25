@@ -4,11 +4,6 @@ import oneCard from "@/views/oneCard.vue";
 
 const routes = [
   {
-    path: "/",
-    name: "home",
-    component: HomeView,
-  },
-  {
     path: "/about",
     name: "about",
     // route level code-splitting
@@ -16,6 +11,11 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+  },
+  {
+    path: "/",
+    name: "myHome",
+    component: () => import("../views/myHome.vue"),
   },
   {
     path: "/products",

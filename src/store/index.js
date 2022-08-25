@@ -65,13 +65,27 @@ export default createStore({
       }
     },
     register: async (context, data) => {
-      const { FullName, email, password } = data;
-      fetch("http://localhost:7373/users", {
+      const {
+        full_name,
+        email,
+        password,
+        billing_address,
+        default_shipping_address,
+        country,
+        phone,
+        user_type,
+      } = data;
+      fetch("http://localhost:7373/users/register", {
         method: "POST",
         body: JSON.stringify({
-          FullName: FullName,
+          full_name: full_name,
           email: email,
           password: password,
+          billing_address: billing_address,
+          default_shipping_address: default_shipping_address,
+          country: country,
+          phone: phone,
+          user_type: user_type,
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -79,6 +93,7 @@ export default createStore({
       })
         .then((response) => response.json())
         .then((json) => context.commit("setusers", json));
+      router.push("/products");
     },
 
     getproducts: async (context) => {

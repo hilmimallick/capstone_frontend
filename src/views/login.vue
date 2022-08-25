@@ -24,7 +24,6 @@
         </div>
       </form>
     </div>
-    <div v-if="users">Welcome {{ users.full_name }}</div>
   </div>
 </template>
 <script>
