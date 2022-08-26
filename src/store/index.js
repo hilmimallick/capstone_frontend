@@ -96,45 +96,51 @@ export default createStore({
       router.push("/products");
     },
 
+    getusers: async (context) => {
+      fetch("http://localhost:7373/users")
+        .then((res) => res.json())
+        .then((users) => context.commit("setusers", users));
+    },
+
     getproducts: async (context) => {
       fetch("http://localhost:7373/products")
         .then((res) => res.json())
         .then((products) => context.commit("setproducts", products));
     },
-  },
-  getproduct: async (context, id) => {
-    fetch("http://localhost:7373/products/" + id)
-      .then((res) => res.json())
-      .then((product) => context.commit("setproduct", product));
-    console.log(res);
-  },
-  deleteProduct: async (context, id) => {
-    fetch("http://localhost:7373/products/" + id, {
-      method: "DELETE",
-    }).then(() => context.dispatch("getProducts"));
-  },
-  createProduct: async (context, Product) => {
-    fetch("http://localhost:7373/products/", {
-      method: "POST",
-      body: JSON.stringify(Product),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
-      .then((response) => response.json())
-      .then(() => context.dispatch("getProducts"));
-  },
-  updateProduct: async (context, Product) => {
-    fetch("http://localhost:7373/products/" + Product.id, {
-      method: "PUT",
-      body: JSON.stringify(Product),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
-      .then((response) => response.json())
-      .then(() => context.dispatch("getProducts"));
-  },
 
+    getproduct: async (context, id) => {
+      fetch("http://localhost:7373/products/" + id)
+        .then((res) => res.json())
+        .then((product) => context.commit("setproduct", product));
+      console.log(res);
+    },
+    deleteProduct: async (context, id) => {
+      fetch("http://localhost:7373/products/" + id, {
+        method: "DELETE",
+      }).then(() => context.commit("getProducts"));
+    },
+    Addproduct: async (context, product) => {
+      fetch("http://localhost:7373/products/", {
+        method: "POST",
+        body: JSON.stringify(product),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then(() => context.commit("setproducts"));
+    },
+    updateProduct: async (context, Product) => {
+      fetch("http://localhost:7373/products/" + Product.id, {
+        method: "PUT",
+        body: JSON.stringify(Product),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then(() => context.dispatch("getProducts"));
+    },
+  },
   modules: {},
 });

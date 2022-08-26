@@ -3,7 +3,9 @@
     <router-link to="/">myHome</router-link> |
     <router-link to="/products">Products</router-link> |
     <router-link to="/login">login</router-link> |
-    <router-link to="/register">Register</router-link>
+    <router-link to="/register">Register</router-link> |
+    <router-link to="/admin">Admin</router-link> |
+    <router-link to="/users">users</router-link>
   </nav>
 </template>
 <script>

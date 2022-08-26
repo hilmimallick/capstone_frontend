@@ -5,6 +5,11 @@
     v-model="search"
     placeholder="Search by category"
   />
+
+  <button @click="ChangeFood1">Food</button>
+  <button @click="ChangeFood2">Food1</button>
+  <button @click="ChangeFood3">drawing</button>
+
   <div class="product-body">
     <div class="row">
       <ProductsCard
@@ -40,6 +45,11 @@ export default {
   },
   mounted() {
     this.$store.dispatch("getproducts");
+  },
+  methods: {
+    ChangeFood3() {
+      this.search = "drawing";
+    },
   },
 };
 </script>
