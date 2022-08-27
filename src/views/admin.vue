@@ -22,6 +22,7 @@
       <th>image</th>
       <th>category</th>
       <th>size</th>
+      <th>Delete</th>
     </tr>
     <adminTables
       v-for="product in filteredproducts"
@@ -58,6 +59,19 @@ export default {
       image: "",
       size: "",
     };
+  },
+  methods: {
+    createProduct() {
+      this.$store.dispatch("Addproduct", {
+        name: this.name,
+        price: this.price,
+        description: this.description,
+        artist: this.artist,
+        category: this.category,
+        image: this.image,
+        size: this.size,
+      });
+    },
   },
   methods: {
     createProduct() {

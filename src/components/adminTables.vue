@@ -9,11 +9,19 @@
     <td><img :src="product.image" class="img-fluid" id="admin-img" /></td>
     <td>{{ product.category }}</td>
     <td>{{ product.size }}</td>
+    <td>
+      <i @click="Deleteproduct(product.id)" class="fa-solid fa-trash-can"></i>
+    </td>
   </tr>
 </template>
 <script>
 export default {
   props: ["product"],
+  methods: {
+    Deleteproduct(id) {
+      return this.$store.dispatch("Deleteproduct", id);
+    },
+  },
 };
 </script>
 <style>

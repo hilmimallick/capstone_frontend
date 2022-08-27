@@ -114,10 +114,10 @@ export default createStore({
         .then((product) => context.commit("setproduct", product));
       console.log(res);
     },
-    deleteProduct: async (context, id) => {
+    Deleteproduct: async (context, id) => {
       fetch("http://localhost:7373/products/" + id, {
         method: "DELETE",
-      }).then(() => context.commit("getProducts"));
+      }).then(() => context.commit("setproducts", product));
     },
     Addproduct: async (context, product) => {
       fetch("http://localhost:7373/products/", {
@@ -130,7 +130,7 @@ export default createStore({
         .then((response) => response.json())
         .then(() => context.commit("setproducts"));
     },
-    updateProduct: async (context, Product) => {
+    Updateproduct: async (context, Product) => {
       fetch("http://localhost:7373/products/" + Product.id, {
         method: "PUT",
         body: JSON.stringify(Product),
@@ -139,7 +139,7 @@ export default createStore({
         },
       })
         .then((response) => response.json())
-        .then(() => context.dispatch("getProducts"));
+        .then(() => context.commit("setproducts"));
     },
   },
   modules: {},
