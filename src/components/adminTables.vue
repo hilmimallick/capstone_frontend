@@ -10,7 +10,10 @@
     <td>{{ product.category }}</td>
     <td>{{ product.size }}</td>
     <td>
-      <i @click="Deleteproduct(product.id)" class="fa-solid fa-trash-can"></i>
+      <i
+        @click="deleteproduct(product.product_id)"
+        class="fa-solid fa-trash-can"
+      ></i>
     </td>
   </tr>
 </template>
@@ -18,7 +21,7 @@
 export default {
   props: ["product"],
   methods: {
-    Deleteproduct(id) {
+    deleteproduct(id) {
       return this.$store.dispatch("Deleteproduct", id);
     },
   },

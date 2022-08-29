@@ -1,7 +1,7 @@
 <template>
   <input type="text" v-model="search" placeholder="Search by category" />
 
-  <form @submit.prevent="createProduct()">
+  <form @submit="createProduct()">
     <input type="text" v-model="name" placeholder="name" />
     <input type="text" v-model="price" placeholder="price" />
     <input type="text" v-model="description" placeholder="description" />
@@ -73,19 +73,7 @@ export default {
       });
     },
   },
-  methods: {
-    createProduct() {
-      this.$store.dispatch("Addproduct", {
-        name: this.name,
-        price: this.price,
-        description: this.description,
-        artist: this.artist,
-        category: this.category,
-        image: this.image,
-        size: this.size,
-      });
-    },
-  },
+
   mounted() {
     this.$store.dispatch("getproducts");
   },

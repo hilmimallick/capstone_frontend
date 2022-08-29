@@ -1,13 +1,16 @@
 <template>
+  <div class="card-cam" @click="ChangeFood4">
+    <h1>hello</h1>
+  </div>
+
   <input
     class="SB"
     type="text"
     v-model="search"
     placeholder="Search by category"
   />
-
   <button @click="ChangeFood1">Food</button>
-  <button @click="ChangeFood2">Food1</button>
+  <button @click="ChangeFood2">painting</button>
   <button @click="ChangeFood3">drawing</button>
 
   <div class="product-body">
@@ -50,7 +53,24 @@ export default {
     ChangeFood3() {
       this.search = "drawing";
     },
+    ChangeFood2() {
+      this.search = "painting";
+    },
+    ChangeFood4() {
+      this.search = "3d painting";
+    },
   },
 };
 </script>
-<style></style>
+<style>
+.card-cam {
+  height: 300px;
+  width: 300px;
+  border: 2px solid black;
+  background-image: url("https://picsum.photos/200/300?grayscale");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+</style>

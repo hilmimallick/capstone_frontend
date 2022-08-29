@@ -1,17 +1,19 @@
 <template>
-  <div class="onecard">
+  <div id="onecard">
     <div v-if="product">
-      <div
-        v-for="item in product"
-        :key="item.product_id"
-        class="d-flex justify-content-center"
-      >
-        <div class="col-md-6" id="one-img">
-          <img v-bind:src="item.image" class="img-fluid" id="one-pic" />
+      <div v-for="item in product" :key="item.product_id" class="row">
+        <div class="half-left">
+          <div class="one-frame">
+            <div class="one-border">
+              <div class="col-md-6" id="one-img">
+                <img v-bind:src="item.image" class="img-fluid" id="one-pic" />
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div id="one-text">
-          <div class="col-md-6">
+        <div id="one-text" class="col-md-6">
+          <div class="one-body">
             <p class="card-text">{{ item.name }}</p>
             <p class="card-text">{{ item.category }}</p>
             <p class="card-text">R{{ item.price }}</p>
@@ -42,4 +44,56 @@ export default {
   },
 };
 </script>
-<style></style>
+<style>
+.half-left {
+  width: 50%;
+}
+
+.one-frame {
+  margin: 50px auto;
+  border: 25px solid #222;
+  height: 600px;
+  width: 450px;
+  -webkit-box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 3px 10px 4px rgba(0, 0, 0, 0.3);
+}
+
+.border {
+  background: white;
+  height: 100%;
+  width: 100%;
+  -webkit-box-shadow: inset 10px 10px 10px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 3px 7px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+#one-img {
+  height: 500px;
+  width: 355px;
+  margin-left: 10px;
+  margin-top: 25px;
+  -webkit-box-shadow: inset 10px 10px 10px 4px rgba(0, 0, 0, 0.6);
+  box-shadow: inset 3px 7px 2px 5px rgba(0, 0, 0, 0.1);
+  border: 2px inset #c9c9c9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#one-pic {
+  height: 450px;
+  width: 310px;
+}
+
+#one-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+  width: 450px;
+}
+
+#one-body {
+  height: 100%;
+  width: 100%;
+}
+</style>
