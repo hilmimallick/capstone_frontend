@@ -20,6 +20,7 @@
             <p class="card-text">{{ item.description }}</p>
             <p class="card-text">{{ item.artist }}</p>
             <p class="card-text">{{ item.size }}</p>
+            <button><i class="fa-solid fa-cart-plus"></i>Add to cart</button>
           </div>
         </div>
       </div>
@@ -52,7 +53,7 @@ export default {
 .one-frame {
   margin: 50px auto;
   border: 25px solid #222;
-  height: 600px;
+  height: 559px;
   width: 450px;
   -webkit-box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 3px 10px 4px rgba(0, 0, 0, 0.3);
@@ -67,10 +68,10 @@ export default {
 }
 
 #one-img {
-  height: 500px;
+  height: 459px;
   width: 355px;
-  margin-left: 10px;
-  margin-top: 25px;
+  margin-left: 20px;
+  margin-top: 30px;
   -webkit-box-shadow: inset 10px 10px 10px 4px rgba(0, 0, 0, 0.6);
   box-shadow: inset 3px 7px 2px 5px rgba(0, 0, 0, 0.1);
   border: 2px inset #c9c9c9;
@@ -80,7 +81,7 @@ export default {
 }
 
 #one-pic {
-  height: 450px;
+  height: 410px;
   width: 310px;
 }
 
@@ -88,11 +89,11 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 600px;
-  width: 450px;
+  height: 100%;
+  width: 50%;
 }
 
-#one-body {
+.one-body {
   height: 100%;
   width: 100%;
 }

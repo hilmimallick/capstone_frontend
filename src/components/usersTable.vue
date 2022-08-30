@@ -10,11 +10,19 @@
     <td>{{ user.country }}</td>
     <td>{{ user.phone }}</td>
     <td>{{ user.user_type }}</td>
+    <td>
+      <i @click="deleteuser(user.user_id)" class="fa-solid fa-trash-can"></i>
+    </td>
   </tr>
 </template>
 <script>
 export default {
   props: ["user"],
+  methods: {
+    deleteuser(id) {
+      return this.$store.dispatch("Deleteuser", id);
+    },
+  },
 };
 </script>
 <style>

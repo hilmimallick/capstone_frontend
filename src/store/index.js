@@ -119,6 +119,11 @@ export default createStore({
         method: "DELETE",
       }).then((product) => context.commit("setproducts", product));
     },
+    Deleteuser: async (context, id) => {
+      fetch("http://localhost:7373/users/" + id, {
+        method: "DELETE",
+      }).then((user) => context.commit("setusers", user));
+    },
     Addproduct: async (context, product) => {
       fetch("http://localhost:7373/products/", {
         method: "POST",

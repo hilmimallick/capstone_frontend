@@ -1,8 +1,10 @@
 <template>
   <!-- home section -->
-  <section class="home-section"></section>
+  <section id="home-section">
+    <a href="#about-section">About</a>
+  </section>
   <!-- about section  -->
-  <section class="about-section">
+  <section id="about-section">
     <div class="row">
       <!-- left col -->
       <div class="col-md-6" id="about-left">
@@ -28,18 +30,18 @@
     </div>
   </section>
   <!-- contact section -->
-  <section class="contact-section"></section>
+  <section id="contact-section"></section>
 </template>
 <script>
 export default {};
 </script>
 <style>
-.home-section {
+#home-section {
   height: 100vh;
   background-color: black;
 }
 
-.about-section {
+#about-section {
   height: 100vh;
   background-color: white;
 }
@@ -54,7 +56,7 @@ export default {};
   border: 2px solid green;
 }
 
-.contact-section {
+#contact-section {
   height: 100vh;
   background-color: grey;
 }
