@@ -1,12 +1,11 @@
 <template>
   <div class="col-md-4">
-    <!-- <div class="card m-3" style="width: 18rem" id="frame"> -->
     <div class="frame">
       <div class="border">
-        <div class="image">
+        <div class="product-image">
           <img :src="product.image" class="img-fluid" id="product-img" />
         </div>
-        <!-- <div class="card-body"> -->
+
         <router-link
           :to="{ name: 'oneCard', params: { id: product.product_id } }"
           class="router-link"
@@ -15,10 +14,8 @@
             <span>View Product</span>
           </div>
         </router-link>
-        <!-- </div> -->
       </div>
     </div>
-    <!-- </div> -->
   </div>
 </template>
 <script>
@@ -44,7 +41,7 @@ export default {
   box-shadow: inset 3px 7px 2px 5px rgba(0, 0, 0, 0.4);
 }
 
-.image {
+.product-image {
   height: 350px;
   width: 250px;
   margin-left: 25px;
