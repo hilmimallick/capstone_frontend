@@ -67,9 +67,16 @@
           </div>
 
           <div>
-            <select name="user" id="user" v-model="user_type">
+            <input
+              class="register-form-usertype"
+              type="text"
+              v-model="user_type"
+              placeholder="user"
+              readonly
+            />
+            <!-- <select name="user" id="user" v-model="user_type">
               <option value="user">Customer</option>
-            </select>
+            </select> -->
           </div>
 
           <div>
@@ -91,7 +98,7 @@ export default {
       default_shipping_address: "",
       country: "",
       phone: "",
-      user_type: "",
+      user_type: "user",
     };
   },
   computed: {

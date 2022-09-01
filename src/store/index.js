@@ -93,7 +93,6 @@ export default createStore({
       })
         .then((response) => response.json())
         .then((json) => context.commit("setusers", json));
-      router.push("/products");
     },
 
     getusers: async (context) => {
