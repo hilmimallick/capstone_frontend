@@ -33,6 +33,39 @@ export default createStore({
       window.location = "/login";
     },
 
+    login: async (context, payload) => {
+      let res = await fetch("http://localhost:7373/users/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: payload.email,
+          password: payload.password,
+        }),
+      });
+      let data = await res.json();
+      console.log(data);
+      if (data.token) {
+        context.commit("settoken", data.token);
+        // Verify token
+        //
+        fetch("http://localhost:7373/users/verify", {
+          headers: {
+            "Content-Type": "application/json",
+            "x-auth-token": data.token,
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            context.commit("setuser", data.user);
+            router.push("/products");
+          });
+      } else {
+        alert(data);
+      }
+    },
+
     register: async (context, data) => {
       const {
         full_name,
