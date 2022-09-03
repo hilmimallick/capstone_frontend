@@ -15,11 +15,16 @@
 
   <div class="product-body">
     <div class="row">
-      <ProductsCard
-        v-for="product in filteredproducts"
-        :key="product.id"
-        :product="product"
-      ></ProductsCard>
+      <div class="col-lg-6" id="filters"></div>
+      <div class="col-lg-6" id="filter-right">
+        <div class="row">
+          <ProductsCard
+            v-for="product in filteredproducts"
+            :key="product.id"
+            :product="product"
+          ></ProductsCard>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -72,5 +77,14 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
+}
+
+#filters {
+  width: 30%;
+  background: orange;
+}
+
+#filter-right {
+  width: 70%;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-4">
+  <div class="col-md-6">
     <div class="frame">
       <div class="border">
         <div class="product-image">

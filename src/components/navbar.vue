@@ -5,12 +5,31 @@
     <router-link to="/login">login</router-link> |
     <router-link to="/register">Register</router-link> |
     <router-link to="/admin">Admin</router-link> |
-    <router-link to="/users">users</router-link>
+    <router-link to="/users">users</router-link> |
+    <button
+      class="btn btn-primary"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#artCart"
+      aria-controls="offcanvasRight"
+    >
+      <i class="fa-solid fa-cart-shopping"></i>
+    </button>
+    <artCart />
   </nav>
 </template>
 <script>
+import artCart from "../components/cart.vue";
+
 export default {
+  props: ["user"],
   name: "navbar",
+  components: {
+    artCart,
+  },
+  mounted() {
+    this.$store.dispatch("check");
+  },
 };
 </script>
 <style>
@@ -33,5 +52,9 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+
+#offcanvasRight {
+  width: 50%;
 }
 </style>

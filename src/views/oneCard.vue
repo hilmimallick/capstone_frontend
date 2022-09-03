@@ -20,7 +20,9 @@
             <p class="card-text">{{ item.description }}</p>
             <p class="card-text">{{ item.artist }}</p>
             <p class="card-text">{{ item.size }}</p>
-            <button><i class="fa-solid fa-cart-plus"></i>Add to cart</button>
+            <button @click="this.$store.dispatch('addTocart', item)">
+              <i class="fa-solid fa-cart-plus"></i>Add to cart
+            </button>
           </div>
         </div>
       </div>
@@ -42,6 +44,12 @@ export default {
         this.product = data;
         // console.log(product);
       });
+  },
+
+  methods: {
+    add() {
+      this.$store.dispatch("addTocart", this.id);
+    },
   },
 };
 </script>

@@ -54,17 +54,6 @@
 
   <input type="text" v-model="search" placeholder="Search by category" />
 
-  <!-- <form @submit="createProduct()">
-    <input type="text" v-model="name" placeholder="name" />
-    <input type="text" v-model="price" placeholder="price" />
-    <input type="text" v-model="description" placeholder="description" />
-    <input type="text" v-model="artist" placeholder="artist" />
-    <input type="text" v-model="category" placeholder="category" />
-    <input type="text" v-model="image" placeholder="IMG URL" />
-    <input type="text" v-model="size" placeholder="size" />
-    <button type="submit">ADD EVENT</button>
-  </form> -->
-
   <table class="table table-striped">
     <tr>
       <th>#</th>
