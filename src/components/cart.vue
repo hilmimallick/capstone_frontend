@@ -1,7 +1,7 @@
 <template>
   <div class="offcanvas offcanvas-end" tabindex="-1" id="artCart">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="ffartCart">Offcanvas right</h5>
+      <h5 class="offcanvas-title" id="ffartCart">Your cart details</h5>
       <button
         type="button"
         class="btn-close"
@@ -16,7 +16,7 @@
             {{ art.name }}
           </h2>
           <a class="btn" @click="this.$store.dispatch('deletecartItem', art)">
-            <i class="bi bi-trash3">delimiters</i>
+            <i class="fa-solid fa-trash-can"></i>
           </a>
         </div>
         <button
