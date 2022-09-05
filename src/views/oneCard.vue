@@ -2,11 +2,13 @@
   <div id="onecard">
     <div v-if="product">
       <div v-for="item in product" :key="item.product_id" class="row">
-        <div class="half-left">
-          <div class="one-frame">
-            <div class="one-border">
-              <div class="col-md-6" id="one-img">
-                <img v-bind:src="item.image" class="img-fluid" id="one-pic" />
+        <div class="col-md-6">
+          <div class="half-left">
+            <div class="one-frame">
+              <div class="one-border">
+                <div id="one-img">
+                  <img v-bind:src="item.image" class="img-fluid" id="one-pic" />
+                </div>
               </div>
             </div>
           </div>
@@ -19,7 +21,7 @@
             <p class="card-text">R{{ item.price }}</p>
             <p class="card-text">{{ item.description }}</p>
             <p class="card-text">{{ item.artist }}</p>
-            <p class="card-text">{{ item.size }}</p>
+            <p class="card-text">{{ item.size }}cm</p>
             <button @click="this.$store.dispatch('addTocart', item)">
               <i class="fa-solid fa-cart-plus"></i>Add to cart
             </button>
@@ -54,15 +56,11 @@ export default {
 };
 </script>
 <style>
-.half-left {
-  width: 50%;
-}
-
 .one-frame {
-  margin: 50px auto;
+  margin: 40px auto;
   border: 25px solid #222;
-  height: 559px;
-  width: 450px;
+  height: 539px;
+  width: 405px;
   -webkit-box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 3px 10px 4px rgba(0, 0, 0, 0.3);
 }
@@ -76,8 +74,8 @@ export default {
 }
 
 #one-img {
-  height: 459px;
-  width: 355px;
+  height: 439px;
+  width: 310px;
   margin-left: 20px;
   margin-top: 30px;
   -webkit-box-shadow: inset 10px 10px 10px 4px rgba(0, 0, 0, 0.6);
@@ -89,20 +87,13 @@ export default {
 }
 
 #one-pic {
-  height: 410px;
-  width: 310px;
+  height: 390px;
+  width: 265px;
 }
 
 #one-text {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 50%;
-}
-
-.one-body {
-  height: 100%;
-  width: 100%;
 }
 </style>

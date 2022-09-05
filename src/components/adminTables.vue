@@ -8,7 +8,7 @@
     <td>{{ product.artist }}</td>
     <td><img :src="product.image" class="img-fluid" id="admin-img" /></td>
     <td>{{ product.category }}</td>
-    <td>{{ product.size }}</td>
+    <td>{{ product.size }}cm</td>
     <td>
       <i
         @click="deleteproduct(product.product_id)"

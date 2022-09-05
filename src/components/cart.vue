@@ -41,4 +41,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+#artCart {
+  width: 50%;
+}
+</style>

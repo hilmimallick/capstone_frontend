@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import oneCard from "@/views/oneCard.vue";
+import profile from "@/views/profile.vue";
 
 const routes = [
   {
@@ -26,6 +27,12 @@ const routes = [
     path: "/Products/:id",
     name: "oneCard",
     component: oneCard,
+    props: true,
+  },
+  {
+    path: "/users/:id",
+    name: "profile",
+    component: profile,
     props: true,
   },
   {

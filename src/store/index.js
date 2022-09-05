@@ -3,7 +3,7 @@ import router from "../router/index";
 export default createStore({
   state: {
     users: null,
-    user: null,
+    user: null || JSON.parse(localStorage.getItem("users")),
     // || {
     //   // user_id: 1,
     //   email: "user@gmail.com",
@@ -20,6 +20,7 @@ export default createStore({
     products: null,
     product: null,
     arts: null,
+    admin: false,
   },
   getters: {},
 
@@ -32,6 +33,7 @@ export default createStore({
     },
     setuser: (state, user) => {
       state.user = user;
+      localStorage.setItem("users", JSON.stringify(user));
     },
     setproducts: (state, products) => {
       state.products = products;
@@ -44,16 +46,25 @@ export default createStore({
     },
   },
   actions: {
-    check: (context) => {
+    admincheck(context) {
       let user = context.state.user;
       if (user != null) {
-        context.dispatch("getcart");
+        if (user.user_type === "admin") {
+          context.state.admin = true;
+        }
+        context.dispatch("getproduct");
       }
     },
-    logout: async (context) => {
-      context.commit("setusers", null);
-      window.location = "/login";
-    },
+    // check: (context) => {
+    //   let user = context.state.user;
+    //   if (user != null) {
+    //     context.dispatch("getcart");
+    //   }
+    // },
+    // logout: async (context) => {
+    //   context.commit("setusers", null);
+    //   window.location = "/";
+    // },
 
     login: async (context, payload) => {
       console.log(payload);
@@ -92,6 +103,7 @@ export default createStore({
       } else {
         alert(data);
       }
+
       router.push("/products");
     },
 
