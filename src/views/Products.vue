@@ -1,22 +1,23 @@
 <template>
   <div id="border-one">
     <div id="border-two">
-      <h1>Hello</h1>
+      <div>
+        <div class="card-cam" @click="ChangeFood4">
+          <h1>hello</h1>
+        </div>
+
+        <input
+          class="SB"
+          type="text"
+          v-model="search"
+          placeholder="Search by category"
+        />
+        <button @click="ChangeFood1">Food</button>
+        <button @click="ChangeFood2">painting</button>
+        <button @click="ChangeFood3">drawing</button>
+      </div>
     </div>
   </div>
-  <!-- <div class="card-cam" @click="ChangeFood4">
-        <h1>hello</h1>
-      </div>
-
-      <input
-        class="SB"
-        type="text"
-        v-model="search"
-        placeholder="Search by category"
-      />
-      <button @click="ChangeFood1">Food</button>
-      <button @click="ChangeFood2">painting</button>
-      <button @click="ChangeFood3">drawing</button> -->
 
   <div class="row">
     <ProductsCard
@@ -67,8 +68,8 @@ export default {
 </script>
 <style>
 .card-cam {
-  height: 300px;
-  width: 300px;
+  height: 50px;
+  width: 50px;
   border: 2px solid black;
   background-image: url("https://picsum.photos/200/300?grayscale");
   background-position: center;
