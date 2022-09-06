@@ -1,23 +1,63 @@
 <template>
   <nav>
     <div v-if="user !== null">
+      <button
+        class="btn btn-primary"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasRight-nav"
+        aria-controls="offcanvasRight"
+      >
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <div
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="offcanvasRight-nav"
+        aria-labelledby="offcanvasRightLabel"
+      >
+        <div v-if="user !== null" class="offcanvas-header">
+          <h5 id="offcanvasRightLabel">Welcome {{ user.full_name }}</h5>
+          <button
+            type="button"
+            class="btn-close text-reset"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body" id="nav-body">
+          <div>
+            <router-link to="/">myHome</router-link>
+          </div>
+          <div>
+            <router-link class="link" to="/products">Products</router-link>
+          </div>
+          <div><router-link class="link" to="/login">login</router-link></div>
+          <div>
+            <router-link class="link" to="/register">Register</router-link>
+          </div>
+          <div><router-link class="link" to="/admin">Admin</router-link></div>
+          <div><router-link class="link" to="/users">users</router-link></div>
+          <div>
+            <router-link class="link" to="/"
+              ><button class="logout-btn" @click="logout">
+                logout
+              </button></router-link
+            >
+          </div>
+        </div>
+      </div>
       <router-link
+        class="link"
         v-if="user !== null"
         :to="{ name: 'profile', params: { id: user.user_id } }"
       >
         <i class="fa-regular fa-user"></i> Welcome
         {{ user.full_name }}</router-link
       >
-      | <router-link to="/">myHome</router-link> |
-      <router-link to="/products">Products</router-link> |
-      <router-link to="/login">login</router-link> |
-      <router-link to="/register">Register</router-link> |
-      <router-link to="/admin">Admin</router-link> |
-      <router-link to="/users">users</router-link> |
-      <router-link to="/"><button @click="logout">logout</button></router-link>
-      |
       <button
-        class="btn btn-primary"
+        class="btn-primary"
         type="button"
         data-bs-toggle="offcanvas"
         data-bs-target="#artCart"
@@ -63,24 +103,34 @@ export default {
 };
 </script>
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
 nav {
-  padding: 30px;
+  z-index: 100;
+  position: fixed;
+  width: 100%;
 }
 
 nav a {
   font-weight: bold;
   color: #2c3e50;
+  text-decoration: none;
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: white;
+}
+
+.link {
+  padding: 0.5rem;
+}
+
+.logout-btn {
+  font-weight: bold;
+  color: #2c3e50;
+  border: none;
+  background: transparent;
+}
+
+#offcanvasRight-nav {
+  background: orange;
 }
 </style>

@@ -1,36 +1,38 @@
 <template>
-  <div class="login-frame">
-    <div class="login-border">
-      <div class="login-form">
-        <form @submit.prevent="login">
-          <div class="login-input">
-            <input
-              class="input"
-              type="text"
-              v-model="email"
-              name="email"
-              id="name"
-              required
-            />
-            <label for="name" class="input-label">Email Address</label>
-          </div>
+  <div id="login-section">
+    <div class="login-frame">
+      <div class="login-border">
+        <div class="login-form">
+          <form @submit.prevent="login">
+            <div class="login-input">
+              <input
+                class="input"
+                type="text"
+                v-model="email"
+                name="email"
+                id="name"
+                required
+              />
+              <label for="name" class="input-label">Email Address</label>
+            </div>
 
-          <div class="login-input">
-            <input
-              class="input"
-              type="text"
-              v-model="password"
-              required
-              id="name"
-              name="password"
-            />
-            <label for="name" class="input-label">Password</label>
-          </div>
+            <div class="login-input">
+              <input
+                class="input"
+                type="text"
+                v-model="password"
+                required
+                id="name"
+                name="password"
+              />
+              <label for="name" class="input-label">Password</label>
+            </div>
 
-          <div>
-            <button type="submit" id="login-btn">Login</button>
-          </div>
-        </form>
+            <div>
+              <button type="submit" id="login-btn">Login</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
@@ -59,6 +61,10 @@ export default {
 };
 </script>
 <style>
+#login-section {
+  padding-top: 3rem;
+}
+
 .login-frame {
   margin: 50px auto;
   border: 25px solid #222;

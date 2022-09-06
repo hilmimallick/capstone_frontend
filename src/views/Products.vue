@@ -1,30 +1,32 @@
 <template>
-  <div id="border-one">
-    <div id="border-two">
-      <div>
-        <div class="card-cam" @click="ChangeFood4">
-          <h1>hello</h1>
-        </div>
+  <div id="products-section">
+    <div id="border-one">
+      <div id="border-two">
+        <div>
+          <div class="card-cam" @click="ChangeFood4">
+            <h1>hello</h1>
+          </div>
 
-        <input
-          class="SB"
-          type="text"
-          v-model="search"
-          placeholder="Search by category"
-        />
-        <button @click="ChangeFood1">Food</button>
-        <button @click="ChangeFood2">painting</button>
-        <button @click="ChangeFood3">drawing</button>
+          <input
+            class="SB"
+            type="text"
+            v-model="search"
+            placeholder="Search by category"
+          />
+          <button @click="ChangeFood1">Food</button>
+          <button @click="ChangeFood2">painting</button>
+          <button @click="ChangeFood3">drawing</button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="row">
-    <ProductsCard
-      v-for="product in filteredproducts"
-      :key="product.id"
-      :product="product"
-    ></ProductsCard>
+    <div class="row">
+      <ProductsCard
+        v-for="product in filteredproducts"
+        :key="product.id"
+        :product="product"
+      ></ProductsCard>
+    </div>
   </div>
 </template>
 <script>
@@ -94,5 +96,9 @@ export default {
   display: flex;
   justify-content: center;
   background: white;
+}
+
+#products-section {
+  padding-top: 3rem;
 }
 </style>

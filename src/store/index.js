@@ -154,7 +154,7 @@ export default createStore({
       fetch("http://localhost:7373/products/" + id)
         .then((res) => res.json())
         .then((product) => context.commit("setproduct", product));
-      console.log(res);
+      // console.log(res);
     },
     Deleteproduct: async (context, id) => {
       fetch("http://localhost:7373/products/" + id, {

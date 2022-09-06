@@ -1,15 +1,17 @@
 <template>
-  <div v-if="user" id="out-pro">
-    <div v-for="item in user" :key="item.user_id">
-      <div class="pro-first">
-        <div class="pro-second">
-          <div class="profile-text">
-            <p class="pro-text">{{ item.full_name }}</p>
-            <p class="pro-text">{{ item.email }}</p>
-            <p class="pro-text">{{ item.phone }}</p>
-            <p class="pro-text">{{ item.country }}</p>
-            <p class="pro-text">{{ item.billing_address }}</p>
-            <p class="pro-text">{{ item.default_shipping_address }}</p>
+  <div id="profile-section">
+    <div v-if="user" id="out-pro">
+      <div v-for="item in user" :key="item.user_id">
+        <div class="pro-first">
+          <div class="pro-second">
+            <div class="profile-text">
+              <p class="pro-text">{{ item.full_name }}</p>
+              <p class="pro-text">{{ item.email }}</p>
+              <p class="pro-text">{{ item.phone }}</p>
+              <p class="pro-text">{{ item.country }}</p>
+              <p class="pro-text">{{ item.billing_address }}</p>
+              <p class="pro-text">{{ item.default_shipping_address }}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -35,6 +37,11 @@ export default {
 };
 </script>
 <style>
+#profile-section {
+  height: 100%;
+  background: black;
+}
+
 #out-pro {
   display: flex;
   justify-content: center;

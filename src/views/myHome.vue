@@ -39,6 +39,7 @@ export default {};
 #home-section {
   height: 100vh;
   background-color: black;
+  padding-top: 3rem;
 }
 
 #about-section {

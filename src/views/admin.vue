@@ -1,77 +1,79 @@
 <template>
-  <!-- Button trigger modal -->
-  <button
-    type="button"
-    class="btn btn-primary"
-    data-bs-toggle="modal"
-    data-bs-target="#staticBackdrop"
-  >
-    Add product
-  </button>
+  <div id="admin-pro-table">
+    <!-- Button trigger modal -->
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#staticBackdrop"
+    >
+      Add product
+    </button>
 
-  <!-- Modal -->
-  <div
-    class="modal fade"
-    id="staticBackdrop"
-    data-bs-backdrop="static"
-    data-bs-keyboard="false"
-    tabindex="-1"
-    aria-labelledby="staticBackdropLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Add Product</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Add Product</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <form @submit="createProduct()">
+            <div class="modal-body">
+              <input type="text" v-model="name" placeholder="name" />
+              <input type="text" v-model="price" placeholder="price" />
+              <input
+                type="text"
+                v-model="description"
+                placeholder="description"
+              />
+              <input type="text" v-model="artist" placeholder="artist" />
+              <input type="text" v-model="category" placeholder="category" />
+              <input type="text" v-model="image" placeholder="IMG URL" />
+              <input type="text" v-model="size" placeholder="size" />
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Done</button>
+            </div>
+          </form>
         </div>
-        <form @submit="createProduct()">
-          <div class="modal-body">
-            <input type="text" v-model="name" placeholder="name" />
-            <input type="text" v-model="price" placeholder="price" />
-            <input
-              type="text"
-              v-model="description"
-              placeholder="description"
-            />
-            <input type="text" v-model="artist" placeholder="artist" />
-            <input type="text" v-model="category" placeholder="category" />
-            <input type="text" v-model="image" placeholder="IMG URL" />
-            <input type="text" v-model="size" placeholder="size" />
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Done</button>
-          </div>
-        </form>
       </div>
     </div>
+
+    <input type="text" v-model="search" placeholder="Search by category" />
+
+    <table class="table table-striped">
+      <tr>
+        <th>#</th>
+        <th>name</th>
+        <th>price</th>
+        <th>description</th>
+        <th>artist</th>
+        <th>image</th>
+        <th>category</th>
+        <th>size</th>
+        <th>Delete</th>
+      </tr>
+      <adminTables
+        v-for="product in filteredproducts"
+        :key="product.id"
+        :product="product"
+      ></adminTables>
+    </table>
   </div>
-
-  <input type="text" v-model="search" placeholder="Search by category" />
-
-  <table class="table table-striped">
-    <tr>
-      <th>#</th>
-      <th>name</th>
-      <th>price</th>
-      <th>description</th>
-      <th>artist</th>
-      <th>image</th>
-      <th>category</th>
-      <th>size</th>
-      <th>Delete</th>
-    </tr>
-    <adminTables
-      v-for="product in filteredproducts"
-      :key="product.id"
-      :product="product"
-    ></adminTables>
-  </table>
 </template>
 <script>
 import adminTables from "../components/adminTables.vue";
@@ -121,4 +123,8 @@ export default {
   },
 };
 </script>
-<style></style>
+<style>
+#admin-pro-table {
+  padding-top: 3rem;
+}
+</style>
