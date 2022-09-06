@@ -1,14 +1,16 @@
 <template>
-  <div v-if="user">
-    <div v-for="item in user" :key="item.user_id" class="row">
-      <div id="one-text" class="col-md-6">
-        <div class="one-body">
-          <p class="card-text">{{ item.full_name }}</p>
-          <p class="card-text">{{ item.email }}</p>
-          <p class="card-text">{{ item.phone }}</p>
-          <p class="card-text">{{ item.country }}</p>
-          <p class="card-text">{{ item.billing_address }}</p>
-          <p class="card-text">{{ item.default_shipping_address }}</p>
+  <div v-if="user" id="out-pro">
+    <div v-for="item in user" :key="item.user_id">
+      <div class="pro-first">
+        <div class="pro-second">
+          <div class="profile-text">
+            <p class="pro-text">{{ item.full_name }}</p>
+            <p class="pro-text">{{ item.email }}</p>
+            <p class="pro-text">{{ item.phone }}</p>
+            <p class="pro-text">{{ item.country }}</p>
+            <p class="pro-text">{{ item.billing_address }}</p>
+            <p class="pro-text">{{ item.default_shipping_address }}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -32,4 +34,36 @@ export default {
   },
 };
 </script>
-<style></style>
+<style>
+#out-pro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  height: 100vh;
+}
+
+.pro-first {
+  height: 27rem;
+  width: 27rem;
+  border: 0.5rem solid white;
+  background: transparent;
+}
+
+.pro-second {
+  height: 27rem;
+  width: 27rem;
+  border: 0.5rem solid white;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://i.postimg.cc/Fs0nFkcS/user-g6c1055bc9-1280.png);
+  background-position: center;
+}
+
+.pro-text {
+  color: white;
+}
+</style>

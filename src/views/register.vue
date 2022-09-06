@@ -3,80 +3,98 @@
     <div class="register-border">
       <div class="register-form">
         <form @submit.prevent="register">
-          <div>
+          <div class="register-input">
             <input
-              class="register-form-name"
+              class="reg"
               type="text"
               v-model="full_name"
-              placeholder="Full Name"
+              id="name"
+              required
+              name="user name"
             />
+            <label for="name" class="register-label">Full name</label>
           </div>
 
-          <div>
+          <div class="register-input">
             <input
-              class="register-form-email"
-              type="text"
+              class="reg"
+              type="email"
+              name="email"
               v-model="email"
-              placeholder="Email"
+              required
+              id="name"
             />
+            <label for="name" class="register-label">Email Address</label>
           </div>
 
-          <div>
+          <div class="register-input">
             <input
-              class="register-form-password"
-              type="text"
+              class="reg"
+              type="password"
+              name="password"
               v-model="password"
-              placeholder="Password"
+              id="name"
+              required
             />
+            <label for="name" class="register-label">Password</label>
           </div>
 
-          <div>
+          <div class="register-input">
             <input
-              class="register-form-password"
+              class="reg"
               type="text"
+              name="billing_address"
               v-model="billing_address"
-              placeholder="billing_address"
+              id="name"
+              required
             />
+            <label for="name" class="register-label">Billing address</label>
           </div>
 
-          <div>
+          <div class="register-input">
             <input
-              class="register-form-password"
+              class="reg"
               type="text"
+              name="default_shipping_address"
               v-model="default_shipping_address"
-              placeholder="default_shipping_address"
+              id="name"
+              required
             />
+            <label for="name" class="register-label">Shipping address</label>
           </div>
 
-          <div>
+          <div class="register-input">
             <input
-              class="register-form-password"
+              class="reg"
               type="text"
+              name="country"
               v-model="country"
-              placeholder="country"
+              id="name"
+              required
             />
+            <label for="name" class="register-label">Country</label>
           </div>
 
-          <div>
+          <div class="register-input">
             <input
-              class="register-form-password"
-              type="text"
+              class="reg"
+              type="phone"
+              name="phone"
               v-model="phone"
-              placeholder="phone"
+              id="name"
+              required
             />
+            <label for="name" class="register-label">Phone #</label>
           </div>
 
-          <div>
+          <div class="register-input">
             <input
-              class="register-form-usertype"
+              class="reg"
               type="text"
               v-model="user_type"
               placeholder="user"
               readonly
             />
-            <!-- <select name="user" id="user" v-model="user_type">
-              <option value="user">Customer</option>
-            </select> -->
           </div>
 
           <div>
@@ -152,5 +170,40 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.register-input {
+  position: relative;
+  margin: 1rem;
+}
+
+.reg {
+  padding: 5px;
+  border: none;
+  border-radius: 4px;
+  font: inherit;
+  color: black;
+  background-color: transparent;
+  outline: 2px solid black;
+}
+
+.register-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(10px, 10px);
+  transition: transform 0.25s;
+}
+
+.reg:focus + .register-label,
+.reg:valid + .register-label {
+  transform: translate(10px, -14px) scale(0.8);
+  color: black;
+  padding-inline: 5px;
+  background-color: white;
+}
+
+.reg:is(:focus, :valid) {
+  outline-color: #d1e5fe;
 }
 </style>

@@ -3,24 +3,28 @@
     <div class="login-border">
       <div class="login-form">
         <form @submit.prevent="login">
-          <div>
+          <div class="login-input">
             <input
-              class="login-form-email"
+              class="input"
               type="text"
               v-model="email"
               name="email"
-              placeholder="Email"
+              id="name"
+              required
             />
+            <label for="name" class="input-label">Email Address</label>
           </div>
 
-          <div>
+          <div class="login-input">
             <input
-              class="login-form-password"
+              class="input"
               type="text"
               v-model="password"
-              placeholder="Password"
+              required
+              id="name"
               name="password"
             />
+            <label for="name" class="input-label">Password</label>
           </div>
 
           <div>
@@ -84,5 +88,40 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.login-input {
+  position: relative;
+  margin: 3rem;
+}
+
+.input {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font: inherit;
+  color: black;
+  background-color: transparent;
+  outline: 2px solid black;
+}
+
+.input-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(10px, 10px);
+  transition: transform 0.25s;
+}
+
+.input:focus + .input-label,
+.input:valid + .input-label {
+  transform: translate(10px, -14px) scale(0.8);
+  color: black;
+  padding-inline: 5px;
+  background-color: white;
+}
+
+.input:is(:focus, :valid) {
+  outline-color: #d1e5fe;
 }
 </style>

@@ -5,7 +5,8 @@
         v-if="user !== null"
         :to="{ name: 'profile', params: { id: user.user_id } }"
       >
-        Welcome {{ user.full_name }}</router-link
+        <i class="fa-regular fa-user"></i> Welcome
+        {{ user.full_name }}</router-link
       >
       | <router-link to="/">myHome</router-link> |
       <router-link to="/products">Products</router-link> |
