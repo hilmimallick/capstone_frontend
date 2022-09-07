@@ -24,9 +24,9 @@
           <button>login</button>
           <!-- </a> -->
         </router-link>
-        <a href="/register">
+        <router-link :to="{ name: 'register' }">
           <button>Sign-up</button>
-        </a>
+        </router-link>
       </div>
       <!-- right col -->
       <div class="col-md-6" id="about-right"></div>
