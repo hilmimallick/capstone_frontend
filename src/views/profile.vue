@@ -38,15 +38,13 @@ export default {
 </script>
 <style>
 #profile-section {
-  height: 100%;
-  background: black;
 }
 
 #out-pro {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: black;
+  background: transparent;
   height: 100vh;
 }
 

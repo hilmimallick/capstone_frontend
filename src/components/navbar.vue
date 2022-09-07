@@ -107,6 +107,8 @@ nav {
   z-index: 100;
   position: fixed;
   width: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  border-bottom: 3px solid #1976d2;
 }
 
 nav a {
@@ -131,6 +133,10 @@ nav a.router-link-exact-active {
 }
 
 #offcanvasRight-nav {
-  background: orange;
+  background: rgba(255, 255, 255, 0.01);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 </style>

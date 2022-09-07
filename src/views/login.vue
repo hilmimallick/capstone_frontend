@@ -90,7 +90,8 @@ export default {
   width: 350px;
   margin-top: 8px;
   border: inset;
-  background-color: lightgrey;
+  background-color: #8f5f00;
+  background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
   display: flex;
   justify-content: center;
   align-items: center;

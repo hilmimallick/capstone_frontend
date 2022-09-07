@@ -52,5 +52,6 @@ export default {
 <style>
 #admin-user-table {
   padding-top: 3rem;
+  height: 100vh;
 }
 </style>

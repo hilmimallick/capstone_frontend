@@ -95,7 +95,7 @@ export default {
   margin-left: 20px;
   display: flex;
   justify-content: center;
-  background: white;
+  background: transparent;
 }
 
 #products-section {

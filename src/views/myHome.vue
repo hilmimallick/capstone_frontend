@@ -41,13 +41,12 @@ export default {};
 <style>
 #home-section {
   height: 100vh;
-  background-color: black;
+
   padding-top: 3rem;
 }
 
 #about-section {
   height: 100vh;
-  background-color: white;
 }
 
 #about-left {
@@ -62,6 +61,5 @@ export default {};
 
 #contact-section {
   height: 100vh;
-  background-color: grey;
 }
 </style>
