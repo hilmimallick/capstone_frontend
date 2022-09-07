@@ -40,7 +40,7 @@ export default {
     };
   },
   mounted() {
-    fetch("http://localhost:7373/products/" + this.$route.params.id)
+    fetch("https://lc-capstone.herokuapp.com/products/" + this.$route.params.id)
       .then((res) => res.json())
       .then((data) => {
         this.product = data;

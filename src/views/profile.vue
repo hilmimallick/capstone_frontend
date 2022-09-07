@@ -27,7 +27,7 @@ export default {
     };
   },
   mounted() {
-    fetch("http://localhost:7373/users/" + this.$route.params.id)
+    fetch("https://lc-capstone.herokuapp.com/users/" + this.$route.params.id)
       .then((res) => res.json())
       .then((data) => {
         this.user = data;

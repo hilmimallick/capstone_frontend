@@ -68,7 +68,7 @@ export default createStore({
 
     login: async (context, payload) => {
       console.log(payload);
-      let res = await fetch("http://localhost:7373/users/login", {
+      let res = await fetch("https://lc-capstone.herokuapp.com/users/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -118,7 +118,7 @@ export default createStore({
         phone,
         user_type,
       } = data;
-      fetch("http://localhost:7373/users/register", {
+      fetch("https://lc-capstone.herokuapp.com/users/register", {
         method: "POST",
         body: JSON.stringify({
           full_name: full_name,
@@ -139,35 +139,35 @@ export default createStore({
     },
 
     getusers: async (context) => {
-      fetch("http://localhost:7373/users")
+      fetch("https://lc-capstone.herokuapp.com/users")
         .then((res) => res.json())
         .then((users) => context.commit("setusers", users));
     },
 
     getproducts: async (context) => {
-      fetch("http://localhost:7373/products")
+      fetch("https://lc-capstone.herokuapp.com/products")
         .then((res) => res.json())
         .then((products) => context.commit("setproducts", products));
     },
 
     getproduct: async (context, id) => {
-      fetch("http://localhost:7373/products/" + id)
+      fetch("https://lc-capstone.herokuapp.com/products/" + id)
         .then((res) => res.json())
         .then((product) => context.commit("setproduct", product));
       // console.log(res);
     },
     Deleteproduct: async (context, id) => {
-      fetch("http://localhost:7373/products/" + id, {
+      fetch("https://lc-capstone.herokuapp.com/products/" + id, {
         method: "DELETE",
       }).then((product) => context.commit("setproducts", product));
     },
     Deleteuser: async (context, id) => {
-      fetch("http://localhost:7373/users/" + id, {
+      fetch("https://lc-capstone.herokuapp.com/users/" + id, {
         method: "DELETE",
       }).then((user) => context.commit("setusers", user));
     },
     Addproduct: async (context, product) => {
-      fetch("http://localhost:7373/products/", {
+      fetch("https://lc-capstone.herokuapp.com/products/", {
         method: "POST",
         body: JSON.stringify(product),
         headers: {
@@ -178,7 +178,7 @@ export default createStore({
         .then(() => context.commit("setproducts"));
     },
     Updateproduct: async (context, Product) => {
-      fetch("http://localhost:7373/products/" + Product.id, {
+      fetch("https://lc-capstone.herokuapp.com/products/" + Product.id, {
         method: "PUT",
         body: JSON.stringify(Product),
         headers: {
@@ -192,7 +192,7 @@ export default createStore({
     //cart
     getcart: async (context, id) => {
       id = context.state.user.user_id;
-      await fetch("http://localhost:7373/users/" + id + "/cart", {
+      await fetch("https://lc-capstone.herokuapp.com/users/" + id + "/cart", {
         method: "GET",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -209,7 +209,7 @@ export default createStore({
       console.log(context.state.user);
       id = context.state.user.user_id;
       console.log(art);
-      await fetch("http://localhost:7373/users/" + id + "/cart", {
+      await fetch("https://lc-capstone.herokuapp.com/users/" + id + "/cart", {
         method: "POST",
         body: JSON.stringify(art),
         headers: {
@@ -225,7 +225,7 @@ export default createStore({
     },
     clearcart: async (context, id) => {
       id = context.state.user.user_id;
-      await fetch("http://localhost:7373/users/" + id + "/cart", {
+      await fetch("https://lc-capstone.herokuapp.com/users/" + id + "/cart", {
         method: "DELETE",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -241,7 +241,10 @@ export default createStore({
     deletecartItem: async (context, list, id) => {
       id = context.state.user.user_id;
       await fetch(
-        "http://localhost:7373/users/" + id + "/cart/" + list.cartid,
+        "https://lc-capstone.herokuapp.com/users/" +
+          id +
+          "/cart/" +
+          list.cartid,
         {
           method: "DELETE",
           headers: {
