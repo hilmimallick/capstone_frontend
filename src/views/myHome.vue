@@ -18,9 +18,12 @@
             hic perferendis beatae facere laudantium, earum ad dolorem animi.
           </p>
         </div>
-        <a href="/login">
+
+        <router-link :to="{ name: 'login' }">
+          <!-- <a href="/login"> -->
           <button>login</button>
-        </a>
+          <!-- </a> -->
+        </router-link>
         <a href="/register">
           <button>Sign-up</button>
         </a>
