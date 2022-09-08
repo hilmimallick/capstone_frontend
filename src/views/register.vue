@@ -3,6 +3,7 @@
     <div class="register-frame">
       <div class="register-border">
         <div class="register-form">
+          <div class="register-title"><h1 class="reg-text">Register</h1></div>
           <form @submit.prevent="register">
             <div class="register-input">
               <input
@@ -98,8 +99,8 @@
               />
             </div>
 
-            <div>
-              <button id="register-btn" type="submit">Register</button>
+            <div class="reg-btn">
+              <button type="submit" id="register-btn">Register</button>
             </div>
           </form>
         </div>
@@ -143,6 +144,12 @@ export default {
 };
 </script>
 <style>
+.register-title {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+}
+
 #register-section {
   padding-top: 3rem;
 }
@@ -200,17 +207,41 @@ export default {
   left: 0;
   transform: translate(10px, 10px);
   transition: transform 0.25s;
+  color: white;
+  font-weight: bolder;
 }
 
 .reg:focus + .register-label,
 .reg:valid + .register-label {
   transform: translate(10px, -14px) scale(0.8);
-  color: black;
+  color: white;
   padding-inline: 5px;
-  background-color: white;
+  background-color: black;
 }
 
 .reg:is(:focus, :valid) {
-  outline-color: #d1e5fe;
+  outline-color: black;
+}
+
+.reg-text {
+  font-family: "Rubik Wet Paint";
+  font-weight: bolder;
+  font-size: 5rem;
+  color: #f3c66d;
+  text-shadow: 1rem 1rem 1rem black;
+  letter-spacing: 0.6rem;
+  transform: rotate(310deg);
+  -webkit-transform: rotate(310deg);
+}
+
+.log-btn {
+  display: flex;
+  justify-content: center;
+}
+
+#login-btn {
+  background: transparent;
+  font-weight: bolder;
+  padding: 0.5rem;
 }
 </style>

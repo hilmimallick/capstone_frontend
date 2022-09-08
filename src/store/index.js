@@ -147,7 +147,9 @@ export default createStore({
     getproducts: async (context) => {
       fetch("https://lc-capstone.herokuapp.com/products")
         .then((res) => res.json())
-        .then((products) => context.commit("setproducts", products));
+        .then((products) => {
+          context.commit("setproducts", products), console.log(products[0]);
+        });
     },
 
     getproduct: async (context, id) => {
@@ -159,7 +161,13 @@ export default createStore({
     Deleteproduct: async (context, id) => {
       fetch("https://lc-capstone.herokuapp.com/products/" + id, {
         method: "DELETE",
-      }).then((product) => context.commit("setproducts", product));
+      })
+        // .then((product) => context.commit("setproducts", product));
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data.msg);
+          context.dispatch("getproducts");
+        });
     },
     Deleteuser: async (context, id) => {
       fetch("https://lc-capstone.herokuapp.com/users/" + id, {
@@ -175,7 +183,10 @@ export default createStore({
         },
       })
         .then((response) => response.json())
-        .then(() => context.commit("setproducts"));
+        .then((data) => {
+          console.log(data);
+          context.dispatch("getproducts");
+        });
     },
     Updateproduct: async (context, Product) => {
       fetch("https://lc-capstone.herokuapp.com/products/" + Product.id, {

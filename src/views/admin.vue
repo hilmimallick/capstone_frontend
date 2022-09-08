@@ -31,7 +31,7 @@
               aria-label="Close"
             ></button>
           </div>
-          <form @submit="createProduct()">
+          <form>
             <div class="modal-body">
               <input type="text" v-model="name" placeholder="name" />
               <input type="text" v-model="price" placeholder="price" />
@@ -46,7 +46,14 @@
               <input type="text" v-model="size" placeholder="size" />
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-primary">Done</button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                @click="createProduct"
+                data-bs-dismiss="modal"
+              >
+                Done
+              </button>
             </div>
           </form>
         </div>
@@ -87,7 +94,7 @@ export default {
       });
     },
     products() {
-      return this.$store.state.product;
+      return this.$store.state.products;
     },
   },
   components: { adminTables },
@@ -104,6 +111,11 @@ export default {
       size: "",
     };
   },
+
+  mounted() {
+    this.$store.dispatch("getproducts");
+  },
+
   methods: {
     createProduct() {
       this.$store.dispatch("Addproduct", {
@@ -116,10 +128,6 @@ export default {
         size: this.size,
       });
     },
-  },
-
-  mounted() {
-    this.$store.dispatch("getproducts");
   },
 };
 </script>

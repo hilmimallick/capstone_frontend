@@ -42,8 +42,8 @@ export default {
   mounted() {
     fetch("https://lc-capstone.herokuapp.com/products/" + this.$route.params.id)
       .then((res) => res.json())
-      .then((data) => {
-        this.product = data;
+      .then((productdata) => {
+        this.product = productdata;
         // console.log(product);
       });
   },
@@ -56,16 +56,20 @@ export default {
 };
 </script>
 <style>
+#onecard {
+  height: 100vh;
+}
+
 .one-frame {
-  margin: 40px auto;
+  margin: 30px auto;
   border: 25px solid #222;
-  height: 539px;
+  height: 510px;
   width: 405px;
   -webkit-box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 3px 10px 4px rgba(0, 0, 0, 0.3);
 }
 
-.border {
+.one-border {
   background: white;
   height: 100%;
   width: 100%;
@@ -77,7 +81,7 @@ export default {
   height: 439px;
   width: 310px;
   margin-left: 20px;
-  margin-top: 30px;
+
   -webkit-box-shadow: inset 10px 10px 10px 4px rgba(0, 0, 0, 0.6);
   box-shadow: inset 3px 7px 2px 5px rgba(0, 0, 0, 0.1);
   border: 2px inset #c9c9c9;
@@ -87,8 +91,8 @@ export default {
 }
 
 #one-pic {
-  height: 390px;
-  width: 265px;
+  height: 408px;
+  width: 275px;
 }
 
 #one-text {

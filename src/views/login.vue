@@ -3,6 +3,7 @@
     <div class="login-frame">
       <div class="login-border">
         <div class="login-form">
+          <div class="login-title"><h1 class="log-text">Login</h1></div>
           <form @submit.prevent="login">
             <div class="login-input">
               <input
@@ -28,7 +29,7 @@
               <label for="name" class="input-label">Password</label>
             </div>
 
-            <div>
+            <div class="log-btn">
               <button type="submit" id="login-btn">Login</button>
             </div>
           </form>
@@ -61,6 +62,12 @@ export default {
 };
 </script>
 <style>
+.login-title {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+}
+
 #login-section {
   padding-top: 3rem;
 }
@@ -100,6 +107,7 @@ export default {
 .login-input {
   position: relative;
   margin: 3rem;
+  z-index: 2;
 }
 
 .input {
@@ -118,17 +126,41 @@ export default {
   left: 0;
   transform: translate(10px, 10px);
   transition: transform 0.25s;
+  color: white;
+  font-weight: bolder;
 }
 
 .input:focus + .input-label,
 .input:valid + .input-label {
   transform: translate(10px, -14px) scale(0.8);
-  color: black;
+  color: white;
   padding-inline: 5px;
-  background-color: white;
+  background-color: black;
 }
 
 .input:is(:focus, :valid) {
-  outline-color: #d1e5fe;
+  outline-color: black;
+}
+
+.log-btn {
+  display: flex;
+  justify-content: center;
+}
+
+#login-btn {
+  background: transparent;
+  font-weight: bolder;
+  padding: 0.5rem;
+}
+
+.log-text {
+  font-family: "Rubik Wet Paint";
+  font-weight: bolder;
+  font-size: 5rem;
+  color: #f3c66d;
+  letter-spacing: 0.6rem;
+  text-shadow: 1rem 1rem 1rem black;
+  transform: rotate(310deg);
+  -webkit-transform: rotate(310deg);
 }
 </style>
