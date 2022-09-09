@@ -1,6 +1,6 @@
 <template>
   <div class="foot-section">
-    <h1>Hello Footer</h1>
+    <h3>@ copywrite by ART DIVERSITY</h3>
   </div>
 </template>
 <script>
@@ -16,7 +16,7 @@ export default {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(5px);
   border-top: 3px solid rgba(255, 255, 255, 0.3);
-  height: 5rem;
+  height: 4rem;
   width: 100%;
 }
 </style>

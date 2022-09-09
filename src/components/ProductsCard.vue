@@ -4,6 +4,13 @@
       <div class="border">
         <div class="product-image">
           <img :src="product.image" class="img-fluid" id="product-img" />
+          <div class="art-details">
+            <p>{{product.name}}</p>
+            <p>R{{product.price}}</p>
+            <p>{{product.artist}}</p>
+            <p>{{product.category}}</p>
+            <p>{{product.size}}cm</p>
+          </div>
         </div>
 
         <router-link
@@ -42,6 +49,7 @@ export default {
 }
 
 .product-image {
+  position: relative;
   height: 350px;
   width: 250px;
   margin-left: 25px;
@@ -58,6 +66,29 @@ export default {
 #product-img {
   height: 340px;
   width: 240px;
+}
+
+.art-details {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 50%,
+    rgba(0, 0, 0, 0.7) 50%
+  );
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  opacity: 1;
+  transition: all 0.5s linear;
+}
+.product-image:hover .art-details {
+  opacity: 0;
 }
 
 .pro-btn {

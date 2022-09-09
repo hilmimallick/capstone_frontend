@@ -59,8 +59,8 @@
         </div>
       </div>
     </div>
-
-    <input type="text" v-model="search" placeholder="Search by category" />
+<h3>Search by Name, Artist or Category</h3>
+    <input type="text" v-model="search" placeholder="Search?" />
 
     <table class="table table-striped">
       <tr>
@@ -72,6 +72,7 @@
         <th>image</th>
         <th>category</th>
         <th>size</th>
+        <th>Edit</th>
         <th>Delete</th>
       </tr>
       <adminTables
@@ -89,6 +90,20 @@ export default {
     filteredproducts() {
       return this.$store.state.products?.filter((product) => {
         return product.category
+          ?.toLowerCase()
+          .includes(this.search.toLowerCase());
+      });
+    },
+     filteredproducts() {
+      return this.$store.state.products?.filter((product) => {
+        return product.name
+          ?.toLowerCase()
+          .includes(this.search.toLowerCase());
+      });
+    },
+    teredproducts() {
+      return this.$store.state.products?.filter((product) => {
+        return product.artist
           ?.toLowerCase()
           .includes(this.search.toLowerCase());
       });

@@ -36,17 +36,17 @@
             <div>
               <router-link id="nav-rout" to="/products">Products</router-link>
             </div>
-            <div>
+            <!-- <div>
               <router-link id="nav-rout" to="/login">login</router-link>
-            </div>
-            <div>
+            </div> -->
+            <!-- <div>
               <router-link id="nav-rout" to="/register">Register</router-link>
+            </div> -->
+            <div v-if="user = admin">
+              <router-link id="nav-rout" to="/admin">Products Table</router-link>
             </div>
-            <div>
-              <router-link id="nav-rout" to="/admin">Admin</router-link>
-            </div>
-            <div>
-              <router-link id="nav-rout" to="/users">users</router-link>
+            <div v-if="user = admin">
+              <router-link id="nav-rout" to="/users">Users Table</router-link>
             </div>
             <div></div>
           </div>

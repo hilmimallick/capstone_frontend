@@ -1,5 +1,11 @@
 <template>
   <div id="login-section">
+     <router-link :to="{ name: 'myHome' }">
+            <button id="one-re"><p><i class="fa-solid fa-arrow-left"></i>Return</p></button>
+          </router-link>
+           <router-link :to="{ name: 'register' }">
+            <button id="one-re"><p><i class="fa-solid fa-arrow-left"></i>Sign-up</p></button>
+          </router-link>
     <div class="login-frame">
       <div class="login-border">
         <div class="login-form">
@@ -148,9 +154,23 @@ export default {
 }
 
 #login-btn {
-  background: transparent;
-  font-weight: bolder;
-  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  color: white;
+margin: 1rem;
+border-radius: 5px;
+padding: 0.3rem;
+font-weight: bold;
+width: 6rem;
+height: 3rem;
+}
+
+#login-btn:hover{
+   background: rgba(174, 172, 172, 0.3);
+  color: black;
 }
 
 .log-text {
@@ -163,4 +183,5 @@ export default {
   transform: rotate(310deg);
   -webkit-transform: rotate(310deg);
 }
+
 </style>

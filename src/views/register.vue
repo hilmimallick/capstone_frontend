@@ -1,5 +1,11 @@
 <template>
   <div id="register-section">
+      <router-link :to="{ name: 'myHome' }">
+            <button id="one-re"><p><i class="fa-solid fa-arrow-left"></i>Return</p></button>
+          </router-link>
+           <router-link :to="{ name: 'login' }">
+            <button id="one-re"><p><i class="fa-solid fa-arrow-left"></i>Login</p></button>
+          </router-link>
     <div class="register-frame">
       <div class="register-border">
         <div class="register-form">
@@ -234,14 +240,27 @@ export default {
   -webkit-transform: rotate(310deg);
 }
 
-.log-btn {
+.reg-btn {
   display: flex;
   justify-content: center;
 }
 
-#login-btn {
-  background: transparent;
-  font-weight: bolder;
-  padding: 0.5rem;
+#register-btn {
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  color: white;
+border-radius: 5px;
+padding: 0.2rem;
+font-weight: bold;
+width: 6rem;
+height: 2.8rem;
+}
+
+#register-btn:hover{
+   background: rgba(174, 172, 172, 0.3);
+  color: black;
 }
 </style>

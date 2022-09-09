@@ -3,30 +3,32 @@
     <div id="border-one">
       <div id="border-two">
         <div>
+          <button class="fil-btn" @click="ChangeArt0">ALL</button>
           <button class="fil-btn" @click="ChangeArt1">Sculpture</button>
           <button class="fil-btn" @click="ChangeArt2">Painting</button>
           <button class="fil-btn" @click="ChangeArt3">Drawing</button>
-
-          <!-- <div class="card-cam" @click="ChangeFood4">
-            <h1>hello</h1>
-          </div>
-
-          <input
-            class="SB"
+        </div>
+        <div class="search-text"><h4>Search by art: Name, Category, Artist</h4></div>
+        <div class="search-div">
+           <input
+           class="search-input"
             type="text"
             v-model="search"
-            placeholder="Search by category"
-          /> -->
+            placeholder="SEARCH?"
+          /> 
         </div>
       </div>
     </div>
 
-    <div class="row">
+    <div v-if = "products" class="row">
       <ProductsCard
         v-for="product in filteredproducts"
         :key="product.id"
         :product="product"
       ></ProductsCard>
+    </div>
+    <div v-else>
+        <img src="https://im.ge/i/OJyGqC">
     </div>
   </div>
 </template>
@@ -49,6 +51,20 @@ export default {
           .includes(this.search.toLowerCase());
       });
     },
+    filteredproducts() {
+      return this.$store.state.products?.filter((product) => {
+        return product.artist
+          ?.toLowerCase()
+          .includes(this.search.toLowerCase());
+      });
+    },
+     filteredproducts() {
+      return this.$store.state.products?.filter((product) => {
+        return product.name
+          ?.toLowerCase()
+          .includes(this.search.toLowerCase());
+      });
+    },
     products() {
       return this.$store.state.products;
     },
@@ -57,6 +73,9 @@ export default {
     this.$store.dispatch("getproducts");
   },
   methods: {
+    ChangeArt0() { 
+        this.search = "";
+    },
     ChangeArt1() {
       this.search = "sculpture";
     },
@@ -94,7 +113,6 @@ export default {
   border: 2px solid black;
   margin-top: 20px;
   margin-left: 20px;
-  display: flex;
 
   background-color: #8f5f00;
   background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
@@ -114,5 +132,24 @@ export default {
   margin: 0.5rem;
   color: white;
   font-weight: bolder;
+}
+
+.fil-btn:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+.search-div{
+
+}
+
+.search-input{
+ background: rgba(255, 255, 255, 0.5);
+  box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 0.2rem solid rgba(0, 0, 0, 0.6);
+}
+
+.search-text{
+  margin-top: 1rem;
 }
 </style>

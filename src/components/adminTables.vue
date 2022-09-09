@@ -12,6 +12,7 @@
     <td>
       <!-- Button trigger modal -->
       <button
+      class="edit-btn"
         type="button"
         data-bs-toggle="modal"
         :data-bs-target="`#editProduct` + product.product_id"
@@ -52,5 +53,14 @@ tr,
 td,
 th {
   border: 2px solid black;
+}
+
+.edit-btn{
+  border: none;
+}
+
+.edit-btn:hover{
+ background: white;
+ border-radius: 3px;
 }
 </style>

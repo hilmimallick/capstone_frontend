@@ -5,7 +5,7 @@
       <div>
         <div id="wel-1"><h1 class="wel-1">WELCOME TO</h1></div>
         <div><h1 class="wel-2">ART DIVERSITY</h1></div>
-        <div class="a-ref"><a href="#about-section">About</a></div>
+        <div class="a-ref"><a class="a-ref" href="#about-section">Scroll down to view more about us</a></div>
       </div>
     </div>
   </section>
@@ -15,31 +15,54 @@
       <!-- left col -->
       <div class="col-md-6" id="about-left">
         <div id="div-1">
-          <div>
+          <div id="us"><u>ABOUT US</u></div>
+          <div class="ab-text">
             <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci
-              dolorum asperiores, velit, ullam, id atque earum ipsam aliquam
-              eius aperiam vero possimus nostrum architecto necessitatibus harum
-              et molestias repellendus porro rerum nemo! Asperiores accusantium
-              voluptatibus reiciendis obcaecati veniam aliquam, magnam
-              doloremque hic perferendis beatae facere laudantium, earum ad
-              dolorem animi.
+            At ART DIVERSITY we give aid to upcoming artist whereby we promote thier art through this website. Feel free to sign up for free to view the work of art of artist which we work very closly with.
             </p>
           </div>
 
-          <router-link :to="{ name: 'login' }">
-            <!-- <a href="/login"> -->
-            <button>login</button>
-            <!-- </a> -->
+   <router-link :to="{ name: 'login' }">
+            <button id="about-log"> <h3>LOGIN</h3></button>
           </router-link>
 
+
           <router-link :to="{ name: 'register' }">
-            <button>Sign-up</button>
+            <button id="about-reg"><h3>SIGN-UP</h3></button>
           </router-link>
+
+          <div class="ab-text">
+            <p>Feel free to scroll down and contact us about promoting your work or other artist work you maight know have great potential.</p>
+          </div>
+
+         
         </div>
       </div>
       <!-- right col -->
-      <div class="col-md-6" id="about-right"></div>
+      <div class="col-md-6" id="about-right">
+
+<!-- <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img src="https://picsum.photos/200/300/?blur" class="d-block w-75 h-50">
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="https://picsum.photos/200/300/?blur" class="d-block w-75 h-50">
+    </div>
+    <div class="carousel-item">
+      <img src="https://picsum.photos/200/300/?blur" class="d-block w-75 h-50">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div> -->
+      </div>
     </div>
   </section>
   <!-- contact section -->
@@ -72,6 +95,7 @@
   </section>
 </template>
 <script>
+
 export default {};
 </script>
 <style>
@@ -83,13 +107,13 @@ export default {};
 }
 
 #home-2 {
-  background: rgba(255, 255, 255, 0.01);
+  /* background: rgba(255, 255, 255, 0.01);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   height: 80%;
-  width: 80%;
+  width: 80%; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,11 +139,60 @@ export default {};
 .a-ref {
   display: flex;
   justify-content: center;
+  text-decoration: none;
+  color: white;
 }
 
 #about-section {
-  height: 100vh;
+  height:
+  100vh;
 }
+
+#about-log{
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  color: white;
+margin: 1rem;
+border-radius: 5px;
+padding: 0.3rem;
+}
+
+#about-reg{
+   background: rgba(0, 0, 0, 0.3);
+  box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  color: white;
+margin: 1rem;
+border-radius: 5px;
+padding: 0.3rem;
+}
+
+#about-log:hover{
+   background: rgba(255, 255, 255, 0.01);
+}
+
+#about-reg:hover{
+   background: rgba(255, 255, 255, 0.01);
+}
+
+#us{
+  font-weight: bolder;
+  font-size: 3rem;
+  margin: 1rem;
+}
+
+.ab-text{
+  margin: 1rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+
 #div-1 {
   height: 80%;
   width: 80%;

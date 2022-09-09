@@ -12,9 +12,8 @@
     <div class="offcanvas-body">
       <div v-if="artCart">
         <div class="card" v-for="art in artCart" :key="art">
-          <h2>
-            {{ art.name }}
-          </h2>
+         <p> {{ art.name }}</p>
+         <p>R {{ art.price }}</p>
           <a class="btn" @click="this.$store.dispatch('deletecartItem', art)">
             <i class="fa-solid fa-trash-can"></i>
           </a>
@@ -50,4 +49,9 @@ export default {
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
+
+#ffartCart{
+  color: white;
+}
+
 </style>

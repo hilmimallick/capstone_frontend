@@ -2,6 +2,9 @@
   <div id="profile-section">
     <div v-if="user" id="out-pro">
       <div v-for="item in user" :key="item.user_id">
+        <router-link :to="{ name: 'products' }">
+            <button id="one-re"><p><i class="fa-solid fa-arrow-left"></i>Return</p></button>
+          </router-link>
         <div class="pro-first">
           <div class="pro-second">
             <div class="profile-text">
@@ -37,8 +40,6 @@ export default {
 };
 </script>
 <style>
-#profile-section {
-}
 
 #out-pro {
   display: flex;

@@ -4,6 +4,9 @@
       <div v-for="item in product" :key="item.product_id" class="row">
         <div class="col-md-6">
           <div class="half-left">
+             <router-link :to="{ name: 'products' }">
+            <button id="one-re"><p><i class="fa-solid fa-arrow-left"></i>Return</p></button>
+          </router-link>
             <div class="one-frame">
               <div class="one-border">
                 <div id="one-img">
@@ -16,13 +19,13 @@
 
         <div id="one-text" class="col-md-6">
           <div class="one-body">
-            <p class="card-text">{{ item.name }}</p>
-            <p class="card-text">{{ item.category }}</p>
-            <p class="card-text">R{{ item.price }}</p>
-            <p class="card-text">{{ item.description }}</p>
-            <p class="card-text">{{ item.artist }}</p>
-            <p class="card-text">{{ item.size }}cm</p>
-            <button @click="this.$store.dispatch('addTocart', item)">
+            <p class="one-card-text">{{ item.name }}</p>
+            <p class="one-card-text">{{ item.category }}</p>
+            <p class="one-card-text">R{{ item.price }}</p>
+            <p class="one-card-text">{{ item.description }}</p>
+            <p class="one-card-text">{{ item.artist }}</p>
+            <p class="one-card-text">{{ item.size }}cm</p>
+            <button id="addtocart" @click="this.$store.dispatch('addTocart', item)">
               <i class="fa-solid fa-cart-plus"></i>Add to cart
             </button>
           </div>
@@ -56,8 +59,24 @@ export default {
 };
 </script>
 <style>
+#one-re{
+  margin-left: 12rem;
+  background: transparent;
+  border: none;
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+
+#one-re:hover{
+ color: white;
+}
+
 #onecard {
   height: 100vh;
+}
+
+.half-left{
+  margin-top: 5rem;
 }
 
 .one-frame {
@@ -99,5 +118,28 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.one-card-text{
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+#addtocart{
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  color: white;
+margin: 1rem;
+border-radius: 5px;
+padding: 0.3rem;
+font-weight: bold;
+}
+
+#addtocart:hover{
+  background: rgba(174, 172, 172, 0.3);
+  color: black;
 }
 </style>

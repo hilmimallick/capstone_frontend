@@ -11,7 +11,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" :id="`editProductLabel` + product.product_id">
-            Modal title
+            Edit Product
           </h5>
           <button
             type="button"
