@@ -148,7 +148,7 @@ export default createStore({
       fetch("https://lc-capstone.herokuapp.com/products")
         .then((res) => res.json())
         .then((products) => {
-          context.commit("setproducts", products), console.log(products[0]);
+          context.commit("setproducts", products);
         });
     },
 
@@ -188,16 +188,23 @@ export default createStore({
           context.dispatch("getproducts");
         });
     },
-    Updateproduct: async (context, Product) => {
-      fetch("https://lc-capstone.herokuapp.com/products/" + Product.id, {
-        method: "PUT",
-        body: JSON.stringify(Product),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      })
+    updateProduct: async (context, Product) => {
+      fetch(
+        "https://lc-capstone.herokuapp.com/products/" + Product.product_id,
+        {
+          // fetch("http://localhost:7373/products/" + Product.product_id, {
+          method: "PUT",
+          body: JSON.stringify(Product),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        }
+      )
         .then((response) => response.json())
-        .then(() => context.commit("setproducts"));
+        .then((data) => {
+          console.log(data.msg);
+          context.dispatch("getproducts");
+        });
     },
 
     //cart

@@ -10,16 +10,31 @@
     <td>{{ product.category }}</td>
     <td>{{ product.size }}cm</td>
     <td>
+      <!-- Button trigger modal -->
+      <button
+        type="button"
+        data-bs-toggle="modal"
+        :data-bs-target="`#editProduct` + product.product_id"
+      >
+        Edit
+      </button>
+    </td>
+    <td>
       <i
         @click="deleteproduct(product.product_id)"
         class="fa-solid fa-trash-can"
       ></i>
     </td>
+    <editProducts :product="product" />
   </tr>
 </template>
 <script>
+import editProducts from "./editProducts.vue";
 export default {
   props: ["product"],
+  components: {
+    editProducts,
+  },
   methods: {
     deleteproduct(id) {
       return this.$store.dispatch("Deleteproduct", id);

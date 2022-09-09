@@ -3,7 +3,11 @@
     <div id="border-one">
       <div id="border-two">
         <div>
-          <div class="card-cam" @click="ChangeFood4">
+          <button class="fil-btn" @click="ChangeArt1">Sculpture</button>
+          <button class="fil-btn" @click="ChangeArt2">Painting</button>
+          <button class="fil-btn" @click="ChangeArt3">Drawing</button>
+
+          <!-- <div class="card-cam" @click="ChangeFood4">
             <h1>hello</h1>
           </div>
 
@@ -12,10 +16,7 @@
             type="text"
             v-model="search"
             placeholder="Search by category"
-          />
-          <button @click="ChangeFood1">Food</button>
-          <button @click="ChangeFood2">painting</button>
-          <button @click="ChangeFood3">drawing</button>
+          /> -->
         </div>
       </div>
     </div>
@@ -56,14 +57,14 @@ export default {
     this.$store.dispatch("getproducts");
   },
   methods: {
-    ChangeFood3() {
-      this.search = "drawing";
+    ChangeArt1() {
+      this.search = "sculpture";
     },
-    ChangeFood2() {
+    ChangeArt2() {
       this.search = "painting";
     },
-    ChangeFood4() {
-      this.search = "3d painting";
+    ChangeArt3() {
+      this.search = "drawing";
     },
   },
 };
@@ -94,11 +95,24 @@ export default {
   margin-top: 20px;
   margin-left: 20px;
   display: flex;
-  justify-content: center;
-  background: transparent;
+
+  background-color: #8f5f00;
+  background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
 }
 
 #products-section {
   padding-top: 3rem;
+}
+
+.fil-btn {
+  background: rgba(75, 75, 75, 0.3);
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(74, 74, 74, 0.3);
+  border-radius: 1rem;
+  margin: 0.5rem;
+  color: white;
+  font-weight: bolder;
 }
 </style>

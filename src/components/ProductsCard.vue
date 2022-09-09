@@ -29,8 +29,8 @@ export default {
   border: 25px solid #222;
   height: 500px;
   width: 350px;
-  -webkit-box-shadow: px 2px 3px 1px rgba(0, 0, 0, 0.5);
-  box-shadow: 0px 3px 10px 4px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 8px 8px 8px 8px rgba(0, 0, 0, 0.6);
+  box-shadow: 8px 8px 8px 8px rgba(0, 0, 0, 0.6);
 }
 
 .border {
