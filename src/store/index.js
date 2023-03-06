@@ -68,7 +68,7 @@ export default createStore({
 
     login: async (context, payload) => {
       console.log(payload);
-      let res = await fetch("https://lc-capstone.herokuapp.com/users/login", {
+      let res = await fetch("https://capstone-backend-dleu.onrender.com/users/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -118,7 +118,7 @@ export default createStore({
         phone,
         user_type,
       } = data;
-      fetch("https://lc-capstone.herokuapp.com/users/register", {
+      fetch("https://capstone-backend-dleu.onrender.com/users/register", {
         method: "POST",
         body: JSON.stringify({
           full_name: full_name,
@@ -139,13 +139,13 @@ export default createStore({
     },
 
     getusers: async (context) => {
-      fetch("https://lc-capstone.herokuapp.com/users")
+      fetch("https://capstone-backend-dleu.onrender.com/users")
         .then((res) => res.json())
         .then((users) => context.commit("setusers", users));
     },
 
     getproducts: async (context) => {
-      fetch("https://lc-capstone.herokuapp.com/products")
+      fetch("https://capstone-backend-dleu.onrender.com/products")
         .then((res) => res.json())
         .then((products) => {
           context.commit("setproducts", products);
@@ -153,13 +153,13 @@ export default createStore({
     },
 
     getproduct: async (context, id) => {
-      fetch("https://lc-capstone.herokuapp.com/products/" + id)
+      fetch("https://capstone-backend-dleu.onrender.com/products/" + id)
         .then((res) => res.json())
         .then((product) => context.commit("setproduct", product));
       // console.log(res);
     },
     Deleteproduct: async (context, id) => {
-      fetch("https://lc-capstone.herokuapp.com/products/" + id, {
+      fetch("https://capstone-backend-dleu.onrender.com/products/" + id, {
         method: "DELETE",
       })
         // .then((product) => context.commit("setproducts", product));
@@ -170,12 +170,12 @@ export default createStore({
         });
     },
     Deleteuser: async (context, id) => {
-      fetch("https://lc-capstone.herokuapp.com/users/" + id, {
+      fetch("https://capstone-backend-dleu.onrender.com/users/" + id, {
         method: "DELETE",
       }).then((user) => context.commit("setusers", user));
     },
     Addproduct: async (context, product) => {
-      fetch("https://lc-capstone.herokuapp.com/products/", {
+      fetch("https://capstone-backend-dleu.onrender.com/products/", {
         method: "POST",
         body: JSON.stringify(product),
         headers: {
@@ -190,7 +190,7 @@ export default createStore({
     },
     updateProduct: async (context, Product) => {
       fetch(
-        "https://lc-capstone.herokuapp.com/products/" + Product.product_id,
+        "https://capstone-backend-dleu.onrender.com/products/" + Product.product_id,
         {
           // fetch("http://localhost:7373/products/" + Product.product_id, {
           method: "PUT",
@@ -210,7 +210,7 @@ export default createStore({
     //cart
     getcart: async (context, id) => {
       id = context.state.user.user_id;
-      await fetch("https://lc-capstone.herokuapp.com/users/" + id + "/cart", {
+      await fetch("https://capstone-backend-dleu.onrender.com/users/" + id + "/cart", {
         method: "GET",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -227,7 +227,7 @@ export default createStore({
       console.log(context.state.user);
       id = context.state.user.user_id;
       console.log(art);
-      await fetch("https://lc-capstone.herokuapp.com/users/" + id + "/cart", {
+      await fetch("https://capstone-backend-dleu.onrender.com/users/" + id + "/cart", {
         method: "POST",
         body: JSON.stringify(art),
         headers: {
@@ -243,7 +243,7 @@ export default createStore({
     },
     clearcart: async (context, id) => {
       id = context.state.user.user_id;
-      await fetch("https://lc-capstone.herokuapp.com/users/" + id + "/cart", {
+      await fetch("https://capstone-backend-dleu.onrender.com/users/" + id + "/cart", {
         method: "DELETE",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -259,7 +259,7 @@ export default createStore({
     deletecartItem: async (context, list, id) => {
       id = context.state.user.user_id;
       await fetch(
-        "https://lc-capstone.herokuapp.com/users/" +
+        "https://capstone-backend-dleu.onrender.com/users/" +
           id +
           "/cart/" +
           list.cartid,
